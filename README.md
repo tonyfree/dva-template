@@ -1,37 +1,12 @@
-#### 创建项目
-1. 安装[node](https://nodejs.org/en/)，建议通过[nvm](https://github.com/creationix/nvm)来安装，便于版本切换
-2. 包管理工具：node自带[npm](https://www.npmjs.com/)，可以通[nrm](https://github.com/Pana/nrm)设置registry，或者用[yarn](https://yarnpkg.com/zh-Hans/)进行包管理(本文后续统一使用yarn)，如果公司内部搭建了私有仓库：
-``` 
-npm config set registry your-registry
+### 基于create-react-app的dva模板
 
-yarn config set registry "your-registry"
-```
-3. 创建项目，参考：[create-react-app](https://github.com/facebook/create-react-app)
-``` 
-yarn create react-app my-app 
-```
-4. 目录结构说明：
-```
-dva-template
-    ├── README.md                      // 说明文档
-    ├── node_modules                   // 依赖模块
-    ├── package.json                   // 项目信息
-    ├── .gitignore                     // git忽略配置
-    ├── public                         // 静态资源，不会被webpack处理，直接拷贝到build文件夹下
-    │     ├── favicon.ico
-    │     ├── index.html               // 入口页面
-    │     └── manifest.json            // PWA扩展配置
-    └── src                            // 开发源码，webpack只编译此目录下的代码
-         ├── App.css            
-         ├── App.js                    // React根组件
-         ├── App.test.js               // 组件测试
-         ├── index.css
-         ├── index.js                  // 入口js
-         ├── logo.svg
-         └── registerServiceWorker.js  // React对PWA的实现,线上服务器需要https协议
-```
-5. 其他补充资料  
-+ [package.json](https://docs.npmjs.com/files/package.json)
-+ [gitignore](https://git-scm.com/docs/gitignore)
-+ [manifest.json](https://developer.mozilla.org/zh-CN/docs/Web/Manifest)
-+ [Your First Progressive Web App](https://codelabs.developers.google.com/codelabs/your-first-pwapp/#0)
+#### 前提说明
++ 建议开始之前阅读此文：[JavaScript fundamentals before learning React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/) ( [中文版](https://mp.weixin.qq.com/s/2HLrU43Qsc61gaeJj2Q2Og) )
++ 本模板基于react技术栈和ES6语法，假设你已掌握以下相关技术：[react](https://reactjs.org/)、[react-router](https://reacttraining.com/react-router/web/guides/philosophy)、[redux](https://redux.js.org)、[redux-saga](https://redux-saga.js.org/)、[ECMAScript 6 入门](http://es6.ruanyifeng.com/)
++ 无状态函数组件是定义React组件的首选方法，但若需要内部数据(state)和在生命周期中操作的请使用类组件，如数据初始化(异步请求)、第三方DOM插件如Swiper调用(在componentDidMount中调用)和销毁(在componentWillUnmount中销毁)
++ React使用了很多函数式编程的概念，推荐gitbook：[JS函数式编程指南](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/)
+
+
+#### [step1：用create-react-app初始化项目](https://github.com/tonyfree/dva-template/tree/step1)
+
+#### [step2：参考umi修改目录结构]()
