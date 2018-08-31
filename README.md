@@ -11,3 +11,7 @@
 #### [step1：用create-react-app初始化项目](https://github.com/tonyfree/dva-template/tree/step1)
 
 #### [step2：参考umi目录约定修改目录结构](https://github.com/tonyfree/dva-template/tree/step2)
+
+#### [step3：使用dva](https://github.com/tonyfree/dva-template/tree/step3)
+
+#### [step3：使用antd](https://github.com/tonyfree/dva-template/tree/step4)
