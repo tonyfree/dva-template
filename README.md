@@ -97,7 +97,7 @@ const app = dva()
 app.model(require('./pages/users/model').default)
 
 // 注册视图
-app.router(() => <App />)
+app.router(App)
 
 // 启动应用
 app.start('#root')
