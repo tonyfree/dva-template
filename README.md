@@ -24,3 +24,23 @@ dva-template
          ├── index.js                  
          └── registerServiceWorker.js  
 ```
+3. 使用dva，参考：[dva文档](https://dvajs.com/)  
+
+> 定义model
+```
+// src/pages/users/model.js
+export default {
+  // 命名空间
+  namespace: 'dashboard',
+  state: {
+    temperature: 30,
+    humidity: 70
+  },
+  // 同步操作，唯一可以修改state的地方
+  reducers: {},
+  // 异步操作和业务逻辑
+  effects: {},
+  // 监听数据：history路由变化等
+  subscriptions: {}
+}
+```
