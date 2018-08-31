@@ -1,7 +1,7 @@
 import React from 'react'
 import { Router, Route } from 'dva/router'
 
-import IndexPage from '../pages/index/index.js'
+import IndexPage from '../pages/home'
 import Users from '../pages/users'
 
 const App = ({history}) => {
