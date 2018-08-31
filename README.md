@@ -27,7 +27,7 @@ dva-template
 3. 使用dva，参考：[dva文档](https://dvajs.com/)  
 
 > 定义model
-```
+```javascript
 // src/pages/users/model.js
 
 export default {
@@ -43,7 +43,7 @@ export default {
 ```
 
 > 定义组件: 通过[connect](https://github.com/reduxjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options)把model注入到组件
-```
+```javascript
 // src/pages/users/index.js
 
 import React from 'react'
@@ -57,4 +57,27 @@ const Users = ({ users }) => (
 )
 
 export default connect(({ users }) => ({ users }))(Users)
+```
+> 设置全局路由
+```javascript
+// src/layouts/App.js
+
+import React from 'react'
+import { Router, Route } from 'dva/router'
+
+import IndexPage from '../pages/index'
+import Users from '../pages/users'
+
+const App = ({history}) => {
+  return (
+    <Router history={history}>
+      <div>
+        <Route exact path="/" component={IndexPage} />
+        <Route exact path="/users" component={Users} />
+      </div>
+    </Router>  
+  )
+}
+
+export default App
 ```

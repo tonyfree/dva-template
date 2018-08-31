@@ -1,21 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Router, Route } from 'dva/router'
+import dynamic from 'dva/dynamic'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+const App = ({history, app}) => {
+  const Users = dynamic({
+    app,
+    name: 'users',
+    models: () => [import(/* webpackChunkName: "users-model" */ '../pages/users/model')],
+    component: () => import(/* webpackChunkName: "users-page"  */ '../pages/users')
+  })
+
+  const IndexPage = dynamic({
+    app,
+    component: () => import(/* webpackChunkName: "index-page"  */ '../pages/index')
+  })
+
+
+  return (
+    <Router history={history}>
+      <div>
+        <Route exact path="/" component={IndexPage} />
+        <Route exact path="/users" component={Users} />
       </div>
-    );
-  }
+    </Router>  
+  )
 }
 
-export default App;
+export default App
