@@ -14,4 +14,4 @@
 
 #### [step3：使用dva](https://github.com/tonyfree/dva-template/tree/step3)
 
-#### [step3：使用antd](https://github.com/tonyfree/dva-template/tree/step4)
+#### [step4：使用antd](https://github.com/tonyfree/dva-template/tree/step4)
