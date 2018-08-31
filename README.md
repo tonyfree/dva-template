@@ -31,7 +31,7 @@ dva-template
 // src/pages/users/model.js
 
 export default {
-  namespace: 'dashboard',   // 命名空间
+  namespace: 'users',   // 命名空间
   state: {
     name: 'tony',
     age: 100
