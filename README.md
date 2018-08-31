@@ -81,3 +81,26 @@ const App = ({history}) => {
 
 export default App
 ```
+> dva启动应用
+```javascript
+// src/index.js
+
+import React from 'react'
+import dva from 'dva'
+import './index.css'
+import App from './layouts/App'
+
+//  创建应用
+const app = dva()
+
+// 注册model
+app.model(require('./pages/users/model').default)
+
+// 注册视图
+app.router(() => <App />)
+
+// 启动应用
+app.start('#root')
+
+
+```

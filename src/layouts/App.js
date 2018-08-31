@@ -1,21 +1,10 @@
 import React from 'react'
 import { Router, Route } from 'dva/router'
-import dynamic from 'dva/dynamic'
 
-const App = ({history, app}) => {
-  const Users = dynamic({
-    app,
-    name: 'users',
-    models: () => [import(/* webpackChunkName: "users-model" */ '../pages/users/model')],
-    component: () => import(/* webpackChunkName: "users-page"  */ '../pages/users')
-  })
+import IndexPage from '../pages/index'
+import Users from '../pages/users'
 
-  const IndexPage = dynamic({
-    app,
-    component: () => import(/* webpackChunkName: "index-page"  */ '../pages/index')
-  })
-
-
+const App = ({history}) => {
   return (
     <Router history={history}>
       <div>
