@@ -29,6 +29,7 @@ dva-template
 > 定义model
 ```
 // src/pages/users/model.js
+
 export default {
   namespace: 'dashboard',   // 命名空间
   state: {
@@ -39,4 +40,21 @@ export default {
   effects: {},              // 异步操作和业务逻辑
   subscriptions: {}         // 监听数据：history路由变化等
 }
+```
+
+> 定义组件: 通过[connect](https://github.com/reduxjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options)把model注入到组件
+```
+// src/pages/users/index.js
+
+import React from 'react'
+import { connect } from 'dva'
+
+const Users = ({ users }) => (
+  <div>
+    <p>昵称：{users.name}</p>
+    <p>年龄：{users.age}</p>
+  </div>
+)
+
+export default connect(({ users }) => ({ users }))(Users)
 ```

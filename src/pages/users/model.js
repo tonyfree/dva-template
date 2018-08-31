@@ -1,6 +1,6 @@
 
 export default {
-  namespace: 'dashboard',
+  namespace: 'users',
   state: {
     name: 'tony',
     age: 100
