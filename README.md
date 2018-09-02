@@ -16,7 +16,7 @@ yarn add react-app-rewired babel-plugin-import -D
   "test": "react-app-rewired test --env=jsdom",
 }
 ```
-在项目根目录创建一个 config-overrides.js，配置按需加载和自定义主题
+在项目根目录创建一个 config-overrides.js，配置antd按需加载和开启css-module
 ```javascript
 const { injectBabelPlugin } = require('react-app-rewired')
 const cloneDeep = require('lodash').cloneDeep
