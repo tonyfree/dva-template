@@ -20,10 +20,17 @@ yarn add react-app-rewired babel-plugin-import -D
 +   "test": "react-app-rewired test --env=jsdom",
 }
 ```
-在项目根目录创建一个 config-overrides.js
-```
+在项目根目录创建一个 config-overrides.js，配置按需加载
+```javascript
+const { injectBabelPlugin } = require('react-app-rewired')
+
 module.exports = function override(config, env) {
-  // do stuff with the webpack config...
+
+  config = injectBabelPlugin(
+    ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
+    config,
+  )
+
   return config;
 }
 ```
