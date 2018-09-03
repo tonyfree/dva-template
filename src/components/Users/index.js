@@ -8,19 +8,31 @@ import UserModal from './UserModal';
 function Users({ dispatch, list: dataSource, loading, total, page: current }) {
 
   function deleteHandler(id) {
-    
+    dispatch({
+      type: 'users/remove',
+      payload: id,
+    });
   }
 
   function pageChangeHandler(page) {
-    
+    dispatch(routerRedux.push({
+      pathname: '/users',
+      query: { page },
+    }));
   }
 
   function editHandler(id, values) {
-    
+    dispatch({
+      type: 'users/patch',
+      payload: { id, values },
+    });
   }
 
   function createHandler(values) {
-    
+    dispatch({
+      type: 'users/create',
+      payload: values,
+    });
   }
 
   const columns = [

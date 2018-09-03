@@ -17,3 +17,5 @@
 #### [step4：使用antd](https://github.com/tonyfree/dva-template/tree/step4)
 
 #### [step5：使用rap2、实现dva-model的reducers、effects、subscriptions](https://github.com/tonyfree/dva-template/tree/step5)
+
+#### [step6：UI测试](https://github.com/tonyfree/dva-template/tree/step6)
