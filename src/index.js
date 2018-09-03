@@ -1,4 +1,3 @@
-import React from 'react'
 import dva from 'dva'
 import createHistory from 'history/createBrowserHistory';
 import './index.css'
