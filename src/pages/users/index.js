@@ -1,11 +1,15 @@
 import React from 'react'
 import { connect } from 'dva'
+import styles from './index.css';
+import MainLayout from '../../components/MainLayout/MainLayout';
+import UsersComponent from '../../components/Users';
 
-const Users = ({ users }) => (
-  <div>
-    <p>昵称：{users.name}</p>
-    <p>年龄：{users.age}</p>
-  </div>
+const Users = ({ users, location }) => (
+  <MainLayout location={location}>
+   <div className={styles.normal}>
+        <UsersComponent />
+      </div>
+  </MainLayout>
 )
 
 export default connect(({ users }) => ({ users }))(Users)
