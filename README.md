@@ -46,4 +46,36 @@ module.exports = function override(config, env) {
   return config;
 }
 ```
-4. 
+
+4. 添加组件：
+```
+├── components     
+|       ├── MainLayout          
+|       |       ├── Header.js            // 全局顶部导航       
+|       |       ├── MainLayout.css                   
+|       |       └── MainLayout.js        // 全局Layout
+|       └── Users                        
+|             ├── index.css 
+|             ├── index.js               // Users列表组件
+|             └── UserModal.js           // User新增编辑弹框
+├── pages
+      ├── 404.css
+      └── 404.js                         // 全局404
+```
+
+5. 修改相关路由：src/layouts/App.js、src/pages/home/index.js、src/pages/users/index.js
+
+6. 添加初始数据
+```javascript
+// src/index.js
+
+const app = dva({
+  initialState: {
+    users: {
+      list: [...],
+      total: 20,
+      page: 1
+    }
+  }
+})
+```
