@@ -3,4 +3,6 @@
 
  1. 新增工具：src/utils/request.js、src/utils/config.js
 
- 2. 
+ 2. 实现service：src/users/service.js
+
+ 3. 实现
