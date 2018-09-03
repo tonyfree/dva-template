@@ -5,4 +5,4 @@
 
  2. 实现service：src/users/service.js
 
- 3. 实现
+ 3. 实现model：src/users/model.js，并在相应的组件src/components/Users/index.js中触发相应事件处理
