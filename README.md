@@ -19,3 +19,7 @@
 #### [step5：使用rap2、实现dva-model的reducers、effects、subscriptions](https://github.com/tonyfree/dva-template/tree/step5)
 
 #### [step6：UI测试](https://github.com/tonyfree/dva-template/tree/step6)
+
+
+#### todos:
+- [] css-module和antd按需加载、自定义主题冲突
