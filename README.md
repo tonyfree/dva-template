@@ -22,9 +22,19 @@ const app = dva({
 
 #### 插件
 1. [dva-loading](https://github.com/dvajs/dva/tree/master/packages/dva-loading):自动处理 loading 状态
+
+安装插件
 ```
 yarn add dva-loading -S
 ```
+
+注册插件
+```javascript
+// src/index.js
+
+app.use(createLoading())
+```
+
 在相应的组件中使用:
 ```javascript
 // src/components/Users/index.js
@@ -39,5 +49,24 @@ function mapStateToProps(state) {
   return {
     lading: state.loading.models.users
   }
+}
+```
+
+2. 模块热替换[HMR](https://github.com/dvajs/babel-plugin-dva-hmr)，create-react-app默认没有开启HMR而是刷新页面
+
+安装插件
+```
+yarn add babel-plugin-dva-hmr redbox-react -D
+```
+
+配置插件
+```javascript
+// config-overrides.js
+
+module.exports = function override(config, env) {
+  if (env === 'development') {
+    config = injectBabelPlugin(['dva-hmr'], config);
+  } 
+  return config;
 }
 ```
