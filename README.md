@@ -62,7 +62,7 @@ yarn add husky lint-staged prettier -D
 }
 ```
 
-### 分析webpack打包模块
+### 分析webpack打包后的模块大小
 安装插件
 ```
 yarn add source-map-explorer -D
@@ -75,4 +75,4 @@ yarn add source-map-explorer -D
    }
 }
 ```
-打包后通过此命令进行分析打包后的模块大小关系
+打包后通过此命令进行分析打包后的模块大小
