@@ -25,6 +25,7 @@ yarn add puppeteer -D
 |      └── users   
 |             └── Users.e2e.test.js      
 ```
+运行e2e测试时需要先把项目启动
 
 #### 参考资料：
 + [UI 测试](https://pro.ant.design/docs/ui-test-cn)
