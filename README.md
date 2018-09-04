@@ -1,3 +1,25 @@
+#### 钩子[hooks](https://dvajs.com/api/#app-use-hooks)，例如：
+1. 全局错误处理
+```javascript
+import { message } from 'antd';
+const app = dva({
+  onError(e) {
+    message.error(e.message, /* duration */3);
+  },
+})
+```
+2. 打印日志：[redux-logger](https://github.com/evgenyrodionov/redux-logger)
+```
+yarn add redux-logger -S
+```
+```javascript
+import { createLogger } from 'redux-logger';
+const app = dva({
+  onAction: createLogger(),
+})
+
+```
+
 #### 插件
 1. [dva-loading](https://github.com/dvajs/dva/tree/master/packages/dva-loading):自动处理 loading 状态
 ```
