@@ -21,4 +21,23 @@ module.exports = function override(config, env) {
 ```
 举例：修改../../components为@components即可
 
-### 
+### [antd国际化](https://ant.design/docs/react/i18n-cn)
+在src/components/Users/index.js中添加antd-DatePicker组件，默认的文案(这里为placeholder)为英文
+```javascript
+// src/layouts/App.js
+
+import { LocaleProvider } from 'antd'
+import zhCN from 'antd/lib/locale-provider/zh_CN'
+
+const App = ({history, app}) => {
+    return (
+    <LocaleProvider locale={zhCN}>
+      <Router history={history}>
+        ...
+      </Router>  
+    </LocaleProvider>
+  )
+}
+
+```
+antd并没有实现完全的国际化，如果整个项目需要国际化可参考：[react-intl](https://github.com/yahoo/react-intl)、[intl-example](https://github.com/ant-design/intl-example)

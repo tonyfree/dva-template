@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Table, Pagination, Popconfirm, Button } from 'antd';
+import { Table, Pagination, Popconfirm, Button, DatePicker } from 'antd';
 import { routerRedux } from 'dva/router';
 import styles from './index.module.css';
 import UserModal from './UserModal';
@@ -75,6 +75,8 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
           <UserModal record={{}} onOk={createHandler}>
             <Button type="primary">Create User</Button>
           </UserModal>
+          &nbsp;&nbsp;&nbsp;
+          <DatePicker />
         </div>
         <Table
           columns={columns}
