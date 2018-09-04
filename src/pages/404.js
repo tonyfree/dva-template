@@ -1,6 +1,6 @@
 import React from 'react'
 import {Icon} from 'antd'
-import MainLayout from '../components/MainLayout/MainLayout';
+import MainLayout from '@components/MainLayout/MainLayout';
 import styles from './404.module.css'
 
 const Error = ({location}) => (

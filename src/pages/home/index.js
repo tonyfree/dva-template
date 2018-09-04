@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import styles from './index.module.css';
-import MainLayout from '../../components/MainLayout/MainLayout';
+import MainLayout from '@components/MainLayout/MainLayout';
 
 @connect()
 class IndexPage extends React.Component {
