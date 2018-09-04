@@ -1,9 +1,15 @@
 #### 使用[rap2](http://rap2.taobao.org/)
 > 目前关于dva和umi的案例都采用了本地mock数据，如果前后端分离不建议本地mock数据，建议使用接口管理平台(IAP的小伙伴可以找peter要rap2的账号，已经写好user模块的几个接口)
 
- 1. 新增工具：src/utils/request.js、src/utils/config.js
+ 1. 新增工具脚本
  ```
  yarn add axios -S
+ ```
+ ```
+ src
+  ├── utils     
+       ├── request.js                                  
+       └── config.js         
  ```
 
  2. 实现service：src/users/service.js
