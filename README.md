@@ -1,31 +1,21 @@
-#### 单元测试
-1. 安装enzyme
+#### 插件
+1. [dva-loading](https://github.com/dvajs/dva/tree/master/packages/dva-loading):自动处理 loading 状态
 ```
-yarn add enzyme enzyme-adapter-react-16 -D
+yarn add dva-loading -S
 ```
+在相应的组件中使用:
+```javascript
+// src/components/Users/index.js
 
-2. 写测试用例：
-```
-├── components     
-|       ├── MainLayout          
-|       |       ├── Header.test.js                         
-|       |       └── MainLayout.test.js        
-|       └── Users                        
-|             └── index.test.js              
-```
+function Users({ loading}) {
+  return (
+    <Table loading={loading} />
+  )
+}
 
-#### e2e测试
-1. 安装puppeteer
+function mapStateToProps(state) {
+  return {
+    lading: state.loading.models.users
+  }
+}
 ```
-yarn add puppeteer -D
-```
-2. 写测试用例
-```
-├── pages
-|      └── users   
-|             └── Users.e2e.test.js      
-```
-
-#### 参考资料：
-+ [UI 测试](https://pro.ant.design/docs/ui-test-cn)
-+ [前端单元测试探索](https://github.com/ecmadao/Coding-Guide/blob/master/Notes/UnitTest/前端单元测试探索.md)
