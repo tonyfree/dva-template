@@ -26,5 +26,7 @@ module.exports = function override(config, env) {
     config = injectBabelPlugin(['dva-hmr'], config);
   } 
 
+  config = injectBabelPlugin('transform-decorators-legacy', config);
+
   return config;
 }

@@ -70,3 +70,33 @@ module.exports = function override(config, env) {
   return config;
 }
 ```
+
+##### 3. [修饰器](http://es6.ruanyifeng.com/#docs/decorator)
+
+安装插件
+```
+yarn add babel-plugin-transform-decorators-legacy -D
+```
+
+配置插件
+```javascript
+// config-overrides.js
+
+module.exports = function override(config, env) {
+  config = injectBabelPlugin('transform-decorators-legacy', config);
+  return config;
+}
+```
+
+在组件中使用修饰器，因为修饰器不能用于函数，把home/index.js由函数修改为类
+```javascript
+@connect()
+class IndexPage extends React.Component {
+  render () {
+    const { location } = this.props
+    return ()
+  }
+}
+
+export default IndexPage
+```
