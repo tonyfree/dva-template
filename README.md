@@ -20,6 +20,7 @@
 
 #### [step6：UI测试](https://github.com/tonyfree/dva-template/tree/step6)
 
+#### [step7：hooks和插件(loading、hmr、decorator)](https://github.com/tonyfree/dva-template/tree/step7)
 
 ### 📦 todos: 
 + css-module和antd按需加载、自定义主题冲突
