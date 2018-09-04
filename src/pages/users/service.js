@@ -1,7 +1,7 @@
-import request from '../../utils/request'
-import config from '../../utils/config'
+import request from '@utils/request';
+import config from '@utils/config';
 
-const { api } = config
+const { api } = config;
 
 export function fetch(params) {
   return request({

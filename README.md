@@ -25,5 +25,6 @@
 
 #### [step8：联调、打包、部署](https://github.com/tonyfree/dva-template/tree/step8)
 
-
 #### [step9：解决css-module和antd按需加载、自定义主题冲突](https://github.com/tonyfree/dva-template/tree/step9)
+
+#### [step10：wepack路径别名、antd国际化、自动格式化代码、分析webpack打包后模块大小](https://github.com/tonyfree/dva-template/tree/step10)

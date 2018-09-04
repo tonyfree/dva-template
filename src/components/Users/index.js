@@ -1,37 +1,38 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Table, Pagination, Popconfirm, Button } from 'antd';
+import { Table, Pagination, Popconfirm, Button, DatePicker } from 'antd';
 import { routerRedux } from 'dva/router';
 import styles from './index.module.css';
 import UserModal from './UserModal';
 
 function Users({ dispatch, list: dataSource, loading, total, page: current }) {
-
   function deleteHandler(id) {
     dispatch({
       type: 'users/remove',
-      payload: id,
+      payload: id
     });
   }
 
   function pageChangeHandler(page) {
-    dispatch(routerRedux.push({
-      pathname: '/users',
-      query: { page },
-    }));
+    dispatch(
+      routerRedux.push({
+        pathname: '/users',
+        query: { page }
+      })
+    );
   }
 
   function editHandler(id, values) {
     dispatch({
       type: 'users/patch',
-      payload: { id, values },
+      payload: { id, values }
     });
   }
 
   function createHandler(values) {
     dispatch({
       type: 'users/create',
-      payload: values,
+      payload: values
     });
   }
 
@@ -40,17 +41,17 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
-      render: text => <a href="">{text}</a>,
+      render: text => <a href="">{text}</a>
     },
     {
       title: 'Email',
       dataIndex: 'email',
-      key: 'email',
+      key: 'email'
     },
     {
       title: 'Address',
       dataIndex: 'address',
-      key: 'address',
+      key: 'address'
     },
     {
       title: 'Operation',
@@ -60,12 +61,15 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
           <UserModal record={record} onOk={editHandler.bind(null, record.id)}>
             <a>Edit</a>
           </UserModal>
-          <Popconfirm title="Confirm to delete?" onConfirm={deleteHandler.bind(null, record.id)}>
+          <Popconfirm
+            title="Confirm to delete?"
+            onConfirm={deleteHandler.bind(null, record.id)}
+          >
             <a href="">Delete</a>
           </Popconfirm>
         </span>
-      ),
-    },
+      )
+    }
   ];
 
   return (
@@ -75,6 +79,8 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
           <UserModal record={{}} onOk={createHandler}>
             <Button type="primary">Create User</Button>
           </UserModal>
+          &nbsp;&nbsp;&nbsp;
+          <DatePicker />
         </div>
         <Table
           columns={columns}
@@ -101,7 +107,7 @@ function mapStateToProps(state) {
     lading: state.loading.models.users,
     list,
     total,
-    page,
+    page
   };
 }
 
