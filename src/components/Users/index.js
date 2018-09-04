@@ -98,6 +98,7 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
 function mapStateToProps(state) {
   const { list, total, page } = state.users;
   return {
+    lading: state.loading.models.users,
     list,
     total,
     page,

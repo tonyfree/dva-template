@@ -5,7 +5,7 @@ export default {
   state: {
     list: [],
     total: null,
-    page: null,
+    page: null
   },
   reducers: {
     save(state, { payload: { list, total, page } }) {

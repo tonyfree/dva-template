@@ -22,5 +22,11 @@ module.exports = function override(config, env) {
   antdRule.include = /node_modules|antd\.css/
   config.module.rules[1].oneOf.splice(3, 0, antdRule)
 
+  if (env === 'development') {
+    config = injectBabelPlugin(['dva-hmr'], config);
+  } 
+
+  config = injectBabelPlugin('transform-decorators-legacy', config);
+
   return config;
 }
