@@ -1,102 +1,56 @@
-#### 钩子[hooks](https://dvajs.com/api/#app-use-hooks)，例如：
-##### 1. 全局错误处理
-```javascript
-import { message } from 'antd';
-const app = dva({
-  onError(e) {
-    message.error(e.message, /* duration */3);
-  },
-})
-```
-##### 2. 打印日志：[redux-logger](https://github.com/evgenyrodionov/redux-logger)
-```
-yarn add redux-logger -S
-```
-```javascript
-import { createLogger } from 'redux-logger';
-const app = dva({
-  onAction: createLogger(),
-})
+### 联调
+前后端分离的方案中，前端和后台基于接口管理平台各自独立开发，进入联调阶段时，前端需要连接真实的后台接口，配置代理：
+```json
+//  package.json
 
-```
-
-#### 插件
-##### 1. [dva-loading](https://github.com/dvajs/dva/tree/master/packages/dva-loading):自动处理 loading 状态
-
-安装插件
-```
-yarn add dva-loading -S
-```
-
-注册插件
-```javascript
-// src/index.js
-
-app.use(createLoading())
-```
-
-在相应的组件中使用:
-```javascript
-// src/components/Users/index.js
-
-function Users({ loading}) {
-  return (
-    <Table loading={loading} />
-  )
-}
-
-function mapStateToProps(state) {
-  return {
-    lading: state.loading.models.users
-  }
-}
-```
-
-##### 2. 模块热替换[HMR](https://github.com/dvajs/babel-plugin-dva-hmr)，create-react-app默认没有开启HMR而是刷新页面
-
-安装插件
-```
-yarn add babel-plugin-dva-hmr redbox-react -D
-```
-
-配置插件
-```javascript
-// config-overrides.js
-
-module.exports = function override(config, env) {
-  if (env === 'development') {
-    config = injectBabelPlugin(['dva-hmr'], config);
-  } 
-  return config;
-}
-```
-
-##### 3. [修饰器](http://es6.ruanyifeng.com/#docs/decorator)
-
-安装插件
-```
-yarn add babel-plugin-transform-decorators-legacy -D
-```
-
-配置插件
-```javascript
-// config-overrides.js
-
-module.exports = function override(config, env) {
-  config = injectBabelPlugin('transform-decorators-legacy', config);
-  return config;
-}
-```
-
-在组件中使用修饰器，因为修饰器不能用于函数，把home/index.js由函数修改为类
-```javascript
-@connect()
-class IndexPage extends React.Component {
-  render () {
-    const { location } = this.props
-    return ()
+{
+  "proxy": {
+    "/api": {
+      "target": "http://rap2api.taobao.org/app/mock/83449",
+      "changeOrigin": true,
+      "pathRewrite": {"^/api": ""}
+    }
   }
 }
 
-export default IndexPage
 ```
+调整 src/utils/config.js
+```javascript
+// const host = 'http://rap2api.taobao.org/app/mock/83449'
+const host = '/api'
+```
+
+### 打包
+> 在step4中我们开启了css-module，在开发环境下是正常的，因为打包的webpack配置和开发环境下不同，之前的css-module配置方式不适用于打包，我们暂时关闭css-module(后续子在eject下处理配置)  
+路由的异步加载处理：使用[dva/dynamic](https://dvajs.com/api/#dva-dynamic)
+```javascript
+// src/index.js  入库不加载路由model，只加载全局model
+
+// app.model(require('./pages/users/model').default)
+```
+```javascript
+// src/layouts/App.js 路由数据异步加载
+
+import dynamic from 'dva/dynamic'
+
+const App = ({history, app}) => {
+  const IndexPage = dynamic({
+    app,
+    component: () => import(/* webpackChunkName: "home-view" */ '../pages/home')
+  })
+  const Users = dynamic({
+    app,
+     models: () => [import(/* webpackChunkName: "users-module" */ '../pages/users/model')],
+    component: () => import(/* webpackChunkName: "users-view" */ '../pages/users')
+  })
+  const Error = dynamic({
+    app,
+    component: () => import(/* webpackChunkName: "error-view" */ '../pages/404')
+  }) 
+  return ( )
+}
+```
+
+### 部署
++ 前端代码独立部署，可以通过nginx代理
++ 建议使用自动化部署

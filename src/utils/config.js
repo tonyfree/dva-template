@@ -1,4 +1,5 @@
 const host = 'http://rap2api.taobao.org/app/mock/83449'
+// const host = '/api'
 
 const api = {
   lists: '/user/lists',

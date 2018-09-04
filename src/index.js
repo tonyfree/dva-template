@@ -16,7 +16,7 @@ const app = dva({
 
 app.use(createLoading())
 
-app.model(require('./pages/users/model').default)
+// app.model(require('./pages/users/model').default)
 
 app.router(App)
 
