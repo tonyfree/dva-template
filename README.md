@@ -1,5 +1,5 @@
 #### 钩子[hooks](https://dvajs.com/api/#app-use-hooks)，例如：
-1. 全局错误处理
+##### 1. 全局错误处理
 ```javascript
 import { message } from 'antd';
 const app = dva({
@@ -8,7 +8,7 @@ const app = dva({
   },
 })
 ```
-2. 打印日志：[redux-logger](https://github.com/evgenyrodionov/redux-logger)
+##### 2. 打印日志：[redux-logger](https://github.com/evgenyrodionov/redux-logger)
 ```
 yarn add redux-logger -S
 ```
@@ -21,7 +21,7 @@ const app = dva({
 ```
 
 #### 插件
-1. [dva-loading](https://github.com/dvajs/dva/tree/master/packages/dva-loading):自动处理 loading 状态
+##### 1. [dva-loading](https://github.com/dvajs/dva/tree/master/packages/dva-loading):自动处理 loading 状态
 
 安装插件
 ```
@@ -52,7 +52,7 @@ function mapStateToProps(state) {
 }
 ```
 
-2. 模块热替换[HMR](https://github.com/dvajs/babel-plugin-dva-hmr)，create-react-app默认没有开启HMR而是刷新页面
+##### 2. 模块热替换[HMR](https://github.com/dvajs/babel-plugin-dva-hmr)，create-react-app默认没有开启HMR而是刷新页面
 
 安装插件
 ```
