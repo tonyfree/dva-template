@@ -21,7 +21,8 @@ const host = '/api'
 ```
 
 ### 打包
-> 在step4中我们开启了css-module，在开发环境下是正常的，因为打包的webpack配置和开发环境下不同，之前的css-module配置方式不适用于打包，我们暂时关闭css-module(后续子在eject下处理配置)  
+> 在step4中我们开启了css-module，在开发环境下是正常的，因为打包的webpack配置和开发环境下不同，之前的css-module配置方式不适用于打包，我们暂时关闭css-module(后续处理 todo)  
+
 路由的异步加载处理：使用[dva/dynamic](https://dvajs.com/api/#dva-dynamic)
 ```javascript
 // src/index.js  入库不加载路由model，只加载全局model
