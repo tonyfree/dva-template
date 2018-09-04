@@ -1,16 +1,16 @@
 
-.normal {
+.mainlayout-normal {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.content {
+.mainlayout-content {
   flex: 1;
   display: flex;
 }
 
-.main {
+.mainlayout-main {
   padding: 0 8px;
   flex: 1 0 auto;
 }
