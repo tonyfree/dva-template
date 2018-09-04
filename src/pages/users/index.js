@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'dva'
-import './index.css';
+import styles from './index.module.css';
 import MainLayout from '../../components/MainLayout/MainLayout';
 import UsersComponent from '../../components/Users';
 
 const Users = ({ users, location }) => (
   <MainLayout location={location}>
-   <div className="usersview-normal">
+   <div className={styles.normal}>
         <UsersComponent />
       </div>
   </MainLayout>

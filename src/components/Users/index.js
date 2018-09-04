@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'dva';
 import { Table, Pagination, Popconfirm, Button } from 'antd';
 import { routerRedux } from 'dva/router';
-import './index.css';
+import styles from './index.module.css';
 import UserModal from './UserModal';
 
 function Users({ dispatch, list: dataSource, loading, total, page: current }) {
@@ -56,7 +56,7 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
       title: 'Operation',
       key: 'operation',
       render: (text, record) => (
-        <span className="users-operation">
+        <span className={styles.operation}>
           <UserModal record={record} onOk={editHandler.bind(null, record.id)}>
             <a>Edit</a>
           </UserModal>
@@ -69,9 +69,9 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
   ];
 
   return (
-    <div className="users-normal">
+    <div className={styles.normal}>
       <div>
-        <div className="users-create">
+        <div className={styles.create}>
           <UserModal record={{}} onOk={createHandler}>
             <Button type="primary">Create User</Button>
           </UserModal>

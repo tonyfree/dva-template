@@ -1,13 +1,13 @@
 import React from 'react';
-import './MainLayout.css';
+import styles from './MainLayout.module.css';
 import Header from './Header';
 
 function MainLayout({ children, location }) {
   return (
-    <div className="mainlayout-normal">
+    <div className={styles.normal}>
       <Header location={location} />
-      <div className="mainlayout-content">
-        <div className="mainlayout-main">
+      <div className={styles.content}>
+        <div className={styles.main}>
           {children}
         </div>
       </div>
