@@ -61,3 +61,18 @@ yarn add husky lint-staged prettier -D
   }
 }
 ```
+
+### 分析webpack打包模块
+安装插件
+```
+yarn add source-map-explorer -D
+```
+配置package.json
+```json
+{
+   "scripts": {
+      "analyze": "source-map-explorer build/static/js/main.*"
+   }
+}
+```
+打包后通过此命令进行分析打包后的模块大小关系
