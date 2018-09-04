@@ -1,4 +1,5 @@
 ### 基于create-react-app的dva模板
+> UmiJS已经发布2.0，相比1.0做了大量的重构和改进，提供了脚手架和全新的插件机制，同时把主要依赖升级到最新版(wepack@4、babel@7)，本模板的初衷是因为Umi1.0存在若干缺陷的情况下产生的，既然Umi新版本已发布，建议大家采用Umi2.0
 
 #### 前提说明
 + 建议开始之前阅读此文：[JavaScript fundamentals before learning React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/) ( [中文版](https://mp.weixin.qq.com/s/2HLrU43Qsc61gaeJj2Q2Og) )
